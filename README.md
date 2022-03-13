@@ -5,7 +5,7 @@
 
 Este proyecto está hecho con React JS. Se conecta esta tienda virtual Frontend con Backend. Desarrollado por Kevin Luciano, las imágenes, nombres de productos y precios son de caracter ilustrativo, propiedades de © Apple Inc.
 
-## Dependencias instaladas
+# Dependencias instaladas
 * React v17.0.2
 * React Router Dom v6.2.2
 * Axios v0.26.1
@@ -68,3 +68,7 @@ http://localhost:4000/api/products
 
 Verá algo similar como la siguiente imagen
 ![get-products-api](assets/get-products-api.png)
+
+**¿Le gustaría saber más sobre el proyecto backend desarrollado? haga clic en el siguiente enlace:**
+
+[https://github.com/kalg12/API-Ecommerce-Apple-Store.git](https://github.com/kalg12/API-Ecommerce-Apple-Store.git)
