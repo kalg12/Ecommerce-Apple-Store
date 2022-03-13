@@ -8,6 +8,7 @@ const useGetProducts = (API) => {
 		const fetchData = async () => {
 			const result = await axios(API);
 			setProducts(result.data);
+			console.log(result.data); //quitar
 		};
 		fetchData();
 	}, [API]);

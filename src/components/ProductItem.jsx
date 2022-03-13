@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import '../styles/ProductItem.css';
 import addToCart from '../assets/icons/bt_add_to_cart.svg';
 
-const ProductItem = ({product}) => {
+const ProductItem = ({products}) => {
 	const [cart, setCart] = useState([]);
 
-	cart.push(product); //remover
+	cart.push(products); //remover
 
 	const handleClick = () => {
 		setCart([]);
@@ -13,11 +13,11 @@ const ProductItem = ({product}) => {
 
 	return (
 		<div className="ProductItem">
-			<img src={product.images[0]} alt={product.title} />
+			<img src={products.image} alt={products.name} />
 			<div className="product-info">
 				<div>
-					<p>${product.price}</p>
-					<p>{product.title}</p>
+					<p>${products.price}</p>
+					<p>{products.description}</p>
 				</div>
 				<figure onClick={handleClick} >
 					<img src={addToCart} alt="" />
