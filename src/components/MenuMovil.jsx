@@ -10,16 +10,16 @@ const MenuMovil = () => {
                   <a href="/">Inicio</a>
               </li>
               <li>
-                  <a href="/">Clothes</a>
+                  <a href="/mac">Mac</a>
               </li>
               <li>
-                  <a href="/">Electronics</a>
+                  <a href="/ipad">iPad</a>
               </li>
               <li>
-                  <a href="/">Furnitures</a>
+                  <a href="/iphone">iPhone</a>
               </li>
               <li>
-                  <a href="/">Toys</a>
+                  <a href="/watch">Watch</a>
               </li>
               <li>
                   <a href="/">Contacto</a>
