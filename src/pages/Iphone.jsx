@@ -1,13 +1,13 @@
 import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ProductList from '../components/ProductList';
+import ProductListIphone from '../components/ProductListIphone';
 
 const Iphone = () => {
   return (
     <>
     <Header />
-    <ProductList />
+    <ProductListIphone />
     <Footer />
     </>
   )

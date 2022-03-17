@@ -31,16 +31,16 @@ const Header = () => {
 						<a href="/">Inicio</a>
 					</li>
 					<li>
-						<a href="/">Mac</a>
+						<a href="/mac">Mac</a>
 					</li>
 					<li>
-						<a href="/">Ipad</a>
+						<a href="/ipad">Ipad</a>
 					</li>
 					<li>
 						<a href="/iphone">iPhone</a>
 					</li>
 					<li>
-						<a href="/">Watch</a>
+						<a href="/watch">Watch</a>
 					</li>
 					<li>
 						<a href="/">Contacto</a>
