@@ -4,7 +4,7 @@ import '../styles/Global.css';
 import '../styles/ProductList.css';
 import ProductItem from './ProductItem';
 
-const ProductListWatch = () => {
+const ProductListWatch = (product) => {
   const [products, setProducts] = useState([]);
 
 	useEffect(() => {
@@ -17,7 +17,6 @@ const ProductListWatch = () => {
 			.then((value) => {
 				if (value.success) {
 					setProducts(value.data);
-					console.log(value);
 				}
 			});
 	};
@@ -30,7 +29,7 @@ const ProductListWatch = () => {
 				<div className="ProductList">
 					{products.map((product) => {
 						if (product.category === category) {
-							return <ProductItem key={product.id} {...product} />
+							return <ProductItem key={product._id} {...product} />
 						}
 					})
 					}

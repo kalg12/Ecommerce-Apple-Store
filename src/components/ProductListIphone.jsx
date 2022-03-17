@@ -4,7 +4,7 @@ import '../styles/Global.css';
 import '../styles/ProductList.css';
 import ProductItem from './ProductItem';
 
-const ProductList = () => {
+const ProductList = (product) => {
 
 	const [products, setProducts] = useState([]);
 
@@ -18,7 +18,6 @@ const ProductList = () => {
 			.then((value) => {
 				if (value.success) {
 					setProducts(value.data);
-					console.log(value);
 				}
 			});
 	};
@@ -31,7 +30,7 @@ const ProductList = () => {
 				<div className="ProductList">
 					{products.map((product) => {
 						if (product.category === category) {
-							return <ProductItem key={product.id} {...product} />
+							return <ProductItem key={product._id} {...product} />
 						}
 					})
 					}
