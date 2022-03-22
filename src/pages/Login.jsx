@@ -26,29 +26,34 @@ const Login = () => {
                 text: 'Por favor, ingresa un correo valido',
             })
         }else{
+            //hacemos un fethc para ver si existe el email y su contraseña en http://localhost:4000/api/users validamos con el metodo post tipo json y mandamos los datos del formulario con el metodo post y si existe el usuario y la contraseña entonces redireccionamos a la pagina principal de la tienda
             fetch('http://localhost:4000/api/users', {
                 method: 'POST',
-                body: formData
+                body: JSON.stringify({
+                    email: formData.get('email'),
+                    password: formData.get('password')
+                }),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
             })
             .then(res => res.json())
             .then(data => {
-                if(data.message === 'true'){
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Bienvenido',
-                        text: 'Has iniciado sesión correctamente',
-                    })
-                    localStorage.setItem('token', data.token)
-                    localStorage.setItem('user', data.user)
-                    window.location.href = '/'
+                if(data.user){
+                    //guardamos el token en el localStorage
+                    localStorage.setItem('token', data.token);
+                    //redireccionamos a la pagina principal de la tienda
+                    window.location.href = '/';
                 }else{
                     Swal.fire({
                         icon: 'error',
                         title: 'Oops...',
-                        text: 'Correo o contraseña incorrectos',
+                        text: 'El correo o la contraseña son incorrectos',
                     })
                 }
-            })
+            }
+            )
+
         }
     }
 
