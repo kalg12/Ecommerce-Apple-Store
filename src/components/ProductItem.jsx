@@ -1,15 +1,18 @@
-import React, { useContext } from 'react';
+import React, {useContext} from 'react';
 import '../styles/ProductItem.css';
 import addToCartSVG from '../assets/icons/bt_add_to_cart.svg';
-import AppContext from '../context/AppContext';
+import {UserContext} from '../context/UserContext';
 
 const ProductItem = (props) => {
-	const { addToCart } = useContext(AppContext);
 
-	const handleAddToCart = item => {
-		addToCart(item);
-	};
+	const { user, setUser } = useContext(UserContext);
 
+	const agregar = () => {
+    user.shopping.push(props);
+    console.log(user.shopping);
+
+    setUser({ ...user });
+  };
 
 	return (
 		<div className="ProductItem">
@@ -19,7 +22,7 @@ const ProductItem = (props) => {
 					<p>${props.price}</p>
 					<p>{props.name}</p>
 				</div>
-				<figure onClick={() => handleAddToCart(props)}>
+				<figure onClick={agregar}>
 					<img src={addToCartSVG} alt="" />
 				</figure>
 			</div>

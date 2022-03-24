@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import '../styles/Header.css'
 import '../styles/Global.css'
 import menu from '../assets/icons/icon_menu.svg'
@@ -6,8 +6,10 @@ import logo from '../assets/logos/logo_yard_sale.svg'
 import shoppingCart from '../assets/icons/icon_shopping_cart.svg'
 import Menu from '../components/Menu'
 import MenuMovil from '../components/MenuMovil'
+import { UserContext } from '../context/UserContext';
 
 const Header = () => {
+	const { user } = useContext(UserContext);
 
     const [toggle, setToggle] = useState(false);
 
@@ -54,7 +56,7 @@ const Header = () => {
 					</li>
 					<li className="navbar-shopping-cart">
 						<img src={shoppingCart} alt="shopping cart" />
-						<div>2</div>
+						<div>{user.shopping.length}</div>
 					</li>
 				</ul>
 			</div>
