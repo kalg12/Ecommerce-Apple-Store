@@ -27,7 +27,7 @@ const ProductItem = (props) => {
 			allowEscapeKey: false,
 		}).then((result) => {
 			if (result.value) {
-				window.location.href = '/cart';
+				window.location.href = '/carrito';
 			}
 		}
 		);

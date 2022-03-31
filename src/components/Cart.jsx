@@ -9,13 +9,13 @@ const Cart = () => {
       <div>
         <h3>Carrito</h3>
         <ul className="list-group">
-          {user.shopping.map((x) => {
+          {user.shopping.map((props) => {
             return (
               <li
-                key={x._id}
+                key={props._id}
                 className="list-group-item d-flex justify-content-between align-items-center"
               >
-                {x.nombre}
+                {props.name}
                 <span className="badge bg-primary rounded-pill">1</span>
               </li>
             );
@@ -23,7 +23,7 @@ const Cart = () => {
         </ul>
 
         <button type="button" className="btn btn-success" /* onClick={pagar} */>
-          Proceder
+          Pagar
         </button>
         <div className="cho-container"></div>
       </div>

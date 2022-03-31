@@ -32,8 +32,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route exact  path="*" element={<NotFound />} />
         </Routes>
-      <Footer />
       </BrowserRouter>
+      <Footer />
     </UserContext.Provider>
     </>
   );

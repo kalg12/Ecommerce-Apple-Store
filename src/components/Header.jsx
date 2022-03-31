@@ -7,6 +7,7 @@ import shoppingCart from '../assets/icons/icon_shopping_cart.svg'
 import Menu from '../components/Menu'
 import MenuMovil from '../components/MenuMovil'
 import { UserContext } from '../context/UserContext';
+import { Link } from 'react-router-dom'
 
 const Header = () => {
 	const { user } = useContext(UserContext);
@@ -54,10 +55,12 @@ const Header = () => {
 					<li className="navbar-email" onClick={handleToggle}>
 						luciano19940@hotmail.com
 					</li>
+					<Link to="/cart">
 					<li className="navbar-shopping-cart">
 						<img src={shoppingCart} alt="shopping cart"/>
 					<div>{user.shopping.length}</div>
 					</li>
+					</Link>
 				</ul>
 			</div>
 			{toggle && <Menu />}
