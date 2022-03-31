@@ -8,6 +8,7 @@ import Mac from './pages/Mac';
 import NotFound from './pages/NotFound';
 import Watch from './pages/Watch';
 import { UserContext } from "./context/UserContext";
+import CartPage from "./pages/CartPage";
 
 function App() {
   const [user, setUser] = useState({
@@ -19,6 +20,7 @@ function App() {
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
         <Routes>
+          <Route exact path="/cart" element={<CartPage />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/watch" element={<Watch />} />
           <Route exact path="/mac" element={<Mac />} />
