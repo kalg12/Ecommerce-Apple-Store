@@ -1,5 +1,4 @@
 import React, {useRef} from 'react';
-import Footer from '../components/Footer';
 import logo from '../assets/logos/logo_yard_sale.svg'
 import '../styles/Global.css'
 import '../styles/Login.css'
@@ -79,7 +78,6 @@ const Login = () => {
                 </button>
             </div>
         </div >
-        <Footer />
     </>
     )
 }

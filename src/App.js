@@ -10,6 +10,7 @@ import Watch from './pages/Watch';
 import { UserContext } from "./context/UserContext";
 import CartPage from "./pages/CartPage";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [user, setUser] = useState({
@@ -31,6 +32,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route exact  path="*" element={<NotFound />} />
         </Routes>
+      <Footer />
       </BrowserRouter>
     </UserContext.Provider>
     </>
