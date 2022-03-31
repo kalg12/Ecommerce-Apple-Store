@@ -21,7 +21,7 @@ const Cart = () => {
             );
           })}
         </ul>
-  
+
         <button type="button" className="btn btn-success" /* onClick={pagar} */>
           Proceder
         </button>

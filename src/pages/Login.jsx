@@ -1,6 +1,5 @@
 import React, {useRef} from 'react';
 import Footer from '../components/Footer';
-import Header from '../components/Header';
 import logo from '../assets/logos/logo_yard_sale.svg'
 import '../styles/Global.css'
 import '../styles/Login.css'
@@ -26,7 +25,6 @@ const Login = () => {
                 text: 'Por favor, ingresa un correo valido',
             })
         }else{
-            //hacemos un fethc para ver si existe el email y su contraseña en http://localhost:4000/api/users validamos con el metodo post tipo json y mandamos los datos del formulario con el metodo post y si existe el usuario y la contraseña entonces redireccionamos a la pagina principal de la tienda
             fetch('http://localhost:4000/api/users', {
                 method: 'POST',
                 body: JSON.stringify({
@@ -59,7 +57,6 @@ const Login = () => {
 
     return (
     <>
-        <Header />
         <div className="Login">
             <div className="Login-container">
                 <img src={logo} alt="logo" className="logo" />

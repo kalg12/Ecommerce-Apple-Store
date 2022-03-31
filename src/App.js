@@ -9,6 +9,7 @@ import NotFound from './pages/NotFound';
 import Watch from './pages/Watch';
 import { UserContext } from "./context/UserContext";
 import CartPage from "./pages/CartPage";
+import Header from "./components/Header";
 
 function App() {
   const [user, setUser] = useState({
@@ -19,6 +20,7 @@ function App() {
     <>
     <UserContext.Provider value={{ user, setUser }}>
       <BrowserRouter>
+      <Header />
         <Routes>
           <Route exact path="/cart" element={<CartPage />} />
           <Route exact path="/login" element={<Login />} />

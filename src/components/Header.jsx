@@ -44,9 +44,9 @@ const Header = () => {
 					<li>
 						<a href="/watch">Watch</a>
 					</li>
-					<li>
+					{/* <li>
 						<a href="/">Contacto</a>
-					</li>
+					</li> */}
 				</ul>
 			</div>
 			<div className="navbar-right">
@@ -55,8 +55,8 @@ const Header = () => {
 						luciano19940@hotmail.com
 					</li>
 					<li className="navbar-shopping-cart">
-						<img src={shoppingCart} alt="shopping cart" />
-						<div>{user.shopping.length}</div>
+						<img src={shoppingCart} alt="shopping cart"/>
+					<div>{user.shopping.length}</div>
 					</li>
 				</ul>
 			</div>
