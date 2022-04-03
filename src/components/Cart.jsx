@@ -4,7 +4,6 @@ import { UserContext } from '../context/UserContext';
 
 const Cart = () => {
   const { user } = useContext(UserContext);
-
   return (
     <div className='Cart-container'>
       <h3>Carrito</h3>

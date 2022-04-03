@@ -9,27 +9,29 @@ const CreateAccount = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const formData = new FormData(form.current);
-        if(formData.get('email') === '' || formData.get('password') === ''){
+        if(formData.get('nombre') === '' || formData.get('email') === '' || formData.get('username') === '' || formData.get('password') === ''){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Por favor, llena todos los campos',
             })
-        }else if(!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(formData.get('email')))){
+        }
+        else if(!(/^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(formData.get('email')))){
             Swal.fire({
                 icon: 'error',
                 title: 'Oops...',
                 text: 'Por favor, ingresa un correo valido',
             })
-        }else{
+        }
+        else{
             fetch('http://localhost:4000/api/users', {
                 method: 'POST',
                 body: JSON.stringify({
                     name: formData.get('name'),
                     lastname: formData.get('lastname'),
                     email: formData.get('email'),
-                    password: formData.get('password'),
                     username: formData.get('email'),
+                    password: formData.get('password'),
                     phone: formData.get('phone'),
                     address: formData.get('address')
                 }),

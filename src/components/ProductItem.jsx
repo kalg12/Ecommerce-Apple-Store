@@ -3,14 +3,20 @@ import '../styles/ProductItem.css';
 import addToCartSVG from '../assets/icons/bt_add_to_cart.svg';
 import { UserContext } from '../context/UserContext';
 import Swal from 'sweetalert2';
+import { Link } from 'react-router-dom';
 
 const ProductItem = (props) => {
-
 	const { user, setUser } = useContext(UserContext);
+
+	const validarLocalStorage = () => {
+		localStorage.getItem('shopping')
+
+	};
+
+	validarLocalStorage();
 
 	const agregar = () => {
 		user.shopping.push(props);
-		console.log(user.shopping);
 		setUser({ ...user });
 		Swal.fire({
 			icon: 'success',
@@ -27,10 +33,15 @@ const ProductItem = (props) => {
 			allowEscapeKey: false,
 		}).then((result) => {
 			if (result.value) {
-				window.location.href = '/carrito';
+				function redirect() {
+					<Link to="/carrito" />
+				}
+				redirect();
 			}
-		}
-		);
+		});
+
+		//guardar en el localstorage shopping.user
+		sessionStorage.setItem('shopping', JSON.stringify(user.shopping));
 	};
 
 	const detalles = () => {
@@ -56,7 +67,6 @@ const ProductItem = (props) => {
 			cancelButtonColor: '#ACD9B2'
 		});
 	};
-
 
 	return (
 		<div className="ProductItem">

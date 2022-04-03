@@ -33,19 +33,19 @@ const Header = () => {
 				<img src={logo} alt="logo" className="nav-logo" />
 				<ul>
 					<li>
-						<a href="/">Inicio</a>
+						<Link to="/">Inicio</Link>
 					</li>
 					<li>
-						<a href="/mac">Mac</a>
+						<Link to="/mac">Mac</Link>
 					</li>
 					<li>
-						<a href="/ipad">Ipad</a>
+						<Link to="/ipad">iPad</Link>
 					</li>
 					<li>
-						<a href="/iphone">iPhone</a>
+						<Link to="/iphone">iPhone</Link>
 					</li>
 					<li>
-						<a href="/watch">Watch</a>
+						<Link to="/watch">Watch</Link>
 					</li>
 				</ul>
 			</div>

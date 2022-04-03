@@ -68,7 +68,7 @@ const Login = () => {
                         className="primary-button login-button">
                         Iniciar sesión
                     </button>
-                    <a href="/">Olvidé mi contraseña</a>
+                    <Link to="/">Olvidé mi contraseña</Link>
                 </form>
                 <Link to="/create-account">
                 <button
