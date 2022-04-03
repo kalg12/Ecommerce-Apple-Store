@@ -11,6 +11,7 @@ import { UserContext } from "./context/UserContext";
 import CartPage from "./pages/CartPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import CreateAccount from "./pages/CreateAccount";
 
 function App() {
   const [user, setUser] = useState({
@@ -23,6 +24,7 @@ function App() {
       <BrowserRouter>
       <Header />
         <Routes>
+          <Route exact path="/create-account" element={<CreateAccount />} />
           <Route exact path="/cart" element={<CartPage />} />
           <Route exact path="/login" element={<Login />} />
           <Route exact path="/watch" element={<Watch />} />

@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import '../styles/Header.css'
 import '../styles/Global.css'
 import menu from '../assets/icons/icon_menu.svg'
@@ -10,9 +10,11 @@ import { UserContext } from '../context/UserContext';
 import { Link } from 'react-router-dom'
 
 const Header = () => {
-	const { user } = useContext(UserContext);
+	// eslint-disable-next-line no-unused-vars
+	const { user, setUser } = useContext(UserContext);
+	var usuario = sessionStorage.getItem('cuentaUsuario')
 
-    const [toggle, setToggle] = useState(false);
+	const [toggle, setToggle] = useState(false);
 
 	const handleToggle = () => {
 		setToggle(!toggle);
@@ -24,9 +26,9 @@ const Header = () => {
 		setToggleMenu(!toggleMenu);
 	}
 
-  return (
-    <nav>
-			<img src={menu} alt="menu" className="menu" onClick={handleToggleMenu}/>
+	return (
+		<nav>
+			<img src={menu} alt="menu" className="menu" onClick={handleToggleMenu} />
 			<div className="navbar-left">
 				<img src={logo} alt="logo" className="nav-logo" />
 				<ul>
@@ -45,28 +47,38 @@ const Header = () => {
 					<li>
 						<a href="/watch">Watch</a>
 					</li>
-					{/* <li>
-						<a href="/">Contacto</a>
-					</li> */}
 				</ul>
 			</div>
 			<div className="navbar-right">
 				<ul>
-					<li className="navbar-email" onClick={handleToggle}>
-						luciano19940@hotmail.com
-					</li>
+					{user.token ? (
+						<>
+							<Link to="#" className="dropdown">
+								Usuario: {usuario}
+							</Link>
+							<li className="navbar-email" onClick={handleToggle}>
+								luciano19940@hotmail.com
+							</li>
+						</>
+					) : (
+						<>
+							<li>
+								<Link to="/login">Iniciar sesion</Link>
+							</li>
+						</>
+					)}
 					<Link to="/cart">
-					<li className="navbar-shopping-cart">
-						<img src={shoppingCart} alt="shopping cart"/>
-					<div>{user.shopping.length}</div>
-					</li>
+						<li className="navbar-shopping-cart">
+							<img src={shoppingCart} alt="shopping cart" />
+							<div>{user.shopping.length}</div>
+						</li>
 					</Link>
 				</ul>
 			</div>
 			{toggle && <Menu />}
 			{toggleMenu && <MenuMovil />}
 		</nav>
-  )
+	)
 }
 
 export default Header

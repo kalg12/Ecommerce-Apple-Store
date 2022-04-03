@@ -1,12 +1,9 @@
-import React, {useRef} from 'react';
-import logo from '../assets/logos/logo_yard_sale.svg'
-import '../styles/Global.css'
-import '../styles/Login.css'
+import React, {useRef} from 'react'
+import '../styles/CreateAccount.css'
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
 
-
-const Login = () => {
+const CreateAccount = () => {
     const form = useRef(null);
 
     const handleSubmit = (event) => {
@@ -28,8 +25,13 @@ const Login = () => {
             fetch('http://localhost:4000/api/users', {
                 method: 'POST',
                 body: JSON.stringify({
+                    name: formData.get('name'),
+                    lastname: formData.get('lastname'),
                     email: formData.get('email'),
-                    password: formData.get('password')
+                    password: formData.get('password'),
+                    username: formData.get('email'),
+                    phone: formData.get('phone'),
+                    address: formData.get('address')
                 }),
                 headers: {
                     'Content-Type': 'application/json'
@@ -53,34 +55,28 @@ const Login = () => {
         }
     }
 
-    return (
+  return (
     <>
-        <div className="Login">
-            <div className="Login-container">
-                <img src={logo} alt="logo" className="logo" />
-                <form action="/" className="form" ref={form}>
-                    <label htmlFor="email" className="label">Email address</label>
-                    <input type="email" name="email" placeholder="email@example.com" className="input input-email" />
-                    <label htmlFor="password" className="label">Password</label>
-                    <input type="password" name="password" placeholder="*********" className="input input-password" />
-                    <button
-                        onClick={handleSubmit}
-                        className="primary-button login-button">
-                        Iniciar sesión
-                    </button>
-                    <a href="/">Olvidé mi contraseña</a>
-                </form>
-                <Link to="/create-account">
-                <button
-                    className="secondary-button signup-button"
-                >
-                    Crear una cuenta
+    <div className="CreateAccount">
+        <div className="CreateAccount-container">
+            <h1>Regístrate</h1>
+            <form ref={form} onSubmit={handleSubmit} className="form">
+                <input type="text" name="name" placeholder="Nombre" className="input" />
+                <input type="text" name="lastname" placeholder="Apellido" className="input" />
+                <input type="email" name="email" placeholder="Correo electrónico" className="input input-email"/>
+                <input type="password" name="password" placeholder="*********" className="input input-password"/>
+                <input type="text" name="phone" placeholder="Teléfono" className="input" />
+                <input type="text" name="address" placeholder="Dirección" className="input" />
+                <button type="submit" className="primary-button signup-button">Registrarse
                 </button>
-                </Link>
+            </form>
+            <div className='withAccount'>
+                <Link to="/login">¿Ya tienes una cuenta?</Link>
             </div>
-        </div >
+        </div>
+    </div>
     </>
-    )
+  )
 }
 
-export default Login
+export default CreateAccount
