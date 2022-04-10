@@ -65,6 +65,9 @@ const Header = () => {
 							<li>
 								<Link to="/login">Iniciar sesion</Link>
 							</li>
+							<li>
+								<Link to="/create-account">Crear cuenta</Link>
+							</li>
 						</>
 					)}
 					<Link to="/cart">

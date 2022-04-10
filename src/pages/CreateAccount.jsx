@@ -39,21 +39,6 @@ const CreateAccount = () => {
                     'Content-Type': 'application/json'
                 }
             })
-            .then(res => res.json())
-            .then(data => {
-                if(data.user){
-                    localStorage.setItem('token', data.token);
-                    window.location.href = '/';
-                }else{
-                    Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'El correo o la contraseña son incorrectos',
-                    })
-                }
-            }
-            )
-
         }
     }
 

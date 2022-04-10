@@ -17,7 +17,6 @@ const Cart = () => {
               <p>Precio: {item.price}</p>
             </div>
           </div>
-
         ))}
       </div>
     </div>

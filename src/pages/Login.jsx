@@ -27,29 +27,23 @@ const Login = () => {
         }else{
             fetch('http://localhost:4000/api/users', {
                 method: 'POST',
-                body: JSON.stringify({
-                    email: formData.get('email'),
-                    password: formData.get('password')
-                }),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
+                body: formData
             })
             .then(res => res.json())
             .then(data => {
-                if(data.user){
-                    localStorage.setItem('token', data.token);
-                    window.location.href = '/';
-                }else{
+                /* Creamos un if para mostrar que se ha creado el usuario correctamente */
+
+                if(data.message === 'Usuario creado correctamente'){
                     Swal.fire({
-                        icon: 'error',
-                        title: 'Oops...',
-                        text: 'El correo o la contraseña son incorrectos',
+                        icon: 'success',
+                        title: 'Bienvenido',
+                        text: 'Has iniciado sesión correctamente',
+                    })
+                    .then(() => {
+                        window.location.href = '/'
                     })
                 }
-            }
-            )
-
+            })
         }
     }
 
