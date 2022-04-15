@@ -39,6 +39,22 @@ const CreateAccount = () => {
                     'Content-Type': 'application/json'
                 }
             })
+
+            /* Swal.fire({
+                icon: 'success',
+                title: 'Cuenta creada correctamente',
+                text: 'Se ha creado su cuenta correctamente',
+            })
+            .then(() => {
+                console.log('Se ha creado la cuenta correctamente')
+            }) */
+            //si el usuario se crea correctamente
+            .then(res => res.json())
+            .then(data => {
+                if(data.message === 'Creado exitosamente'){
+                    console.log('Se ha creado la cuenta correctamente')
+                }
+            })
         }
     }
 
