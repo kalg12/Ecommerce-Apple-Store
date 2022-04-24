@@ -5,7 +5,6 @@ import '../styles/Login.css'
 import Swal from 'sweetalert2'
 import { Link } from 'react-router-dom'
 
-
 const Login = () => {
     const form = useRef(null);
 
@@ -25,25 +24,44 @@ const Login = () => {
                 text: 'Por favor, ingresa un correo valido',
             })
         }else{
-            fetch('http://localhost:4000/api/users', {
-                method: 'POST',
-                body: formData
-            })
-            .then(res => res.json())
-            .then(data => {
-                /* Creamos un if para mostrar que se ha creado el usuario correctamente */
-
-                if(data.message === 'Usuario creado correctamente'){
-                    Swal.fire({
-                        icon: 'success',
-                        title: 'Bienvenido',
-                        text: 'Has iniciado sesión correctamente',
-                    })
-                    .then(() => {
+            try
+            {
+                fetch("http://localhost:4000/api/users/login", {
+                    method: 'POST',
+                    body: JSON.stringify({ email: formData.get('email'), password: formData.get('password') }),
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if(data.sucess) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Bienvenido',
+                            text: 'Has iniciado sesión correctamente',
+                        })
+                        localStorage.setItem('token', data.token)
+                        localStorage.setItem('user', data.user)
                         window.location.href = '/'
-                    })
-                }
-            })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Oops...',
+                            text: 'Correo o contraseña incorrectos',
+                        })
+                    }
+                })
+            }
+            catch(error)
+            {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Hubo un error, por favor intenta de nuevo',
+                })
+            }
         }
     }
 
