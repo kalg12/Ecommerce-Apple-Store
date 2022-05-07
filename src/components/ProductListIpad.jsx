@@ -13,7 +13,7 @@ const ProductList = (product) => {
 	}, []);
 
 	const obtenerProductos = () => {
-		fetch('http://localhost:4000/api/products')
+		fetch('https://apple-ecommerce-kevin.herokuapp.com/api/products')
 			.then((resp) => resp.json())
 			.then((value) => {
 				if (value.success) {

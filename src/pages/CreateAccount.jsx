@@ -24,7 +24,7 @@ const CreateAccount = () => {
             })
         }
         else{
-            fetch('http://localhost:4000/api/users', {
+            fetch('https://apple-ecommerce-kevin.herokuapp.com/api/users', {
                 method: 'POST',
                 body: JSON.stringify({
                     name: formData.get('name'),

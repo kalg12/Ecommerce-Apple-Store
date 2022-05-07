@@ -12,7 +12,7 @@ const Cart = () => {
       data.articulos.push(add);
     });
 
-    fetch("http://localhost:4000/api/payments", {
+    fetch("https://apple-ecommerce-kevin.herokuapp.com/api/payments", {
       method: "POST",
       body: JSON.stringify(data),
       headers: {

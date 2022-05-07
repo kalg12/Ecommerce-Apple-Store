@@ -26,7 +26,7 @@ const Login = () => {
         }else{
             try
             {
-                fetch("http://localhost:4000/api/users/login", {
+                fetch("https://apple-ecommerce-kevin.herokuapp.com/api/users/login", {
                     method: 'POST',
                     body: JSON.stringify({ email: formData.get('email'), password: formData.get('password') }),
                     headers: {
